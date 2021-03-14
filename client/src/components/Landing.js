@@ -3,10 +3,7 @@ import React from 'react';
 const Landing = () => {
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1>
-        Blogster!
-      </h1>
-      Write private blogs
+      Walgreens Rx Hub for connecting techs.
     </div>
   );
 };

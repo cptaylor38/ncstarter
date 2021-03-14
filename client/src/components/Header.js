@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import '../styles/Header.css';
 
 class Header extends Component {
   renderContent() {
@@ -16,7 +17,7 @@ class Header extends Component {
       default:
         return [
           <li key="3" style={{ margin: '0 10px' }}>
-            <Link to="/blogs">My Blogs</Link>
+            <Link to="/profile">My Profile</Link>
           </li>,
           <li key="2">
             <a href={'/auth/logout'}>Logout</a>
@@ -27,14 +28,14 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="indigo">
+      <nav className="indigo lighten-2">
         <div className="nav-wrapper">
           <Link
-            to={this.props.auth ? '/blogs' : '/'}
+            to='/'
             className="left brand-logo"
             style={{ marginLeft: '10px' }}
           >
-            Blogster
+            WAG Rx Hub
           </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>

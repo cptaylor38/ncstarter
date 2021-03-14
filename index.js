@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cookieSession = require('cookie-session'); //authentication and maintenance of sessions
+const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
@@ -34,6 +34,13 @@ if (['production'].includes(process.env.NODE_ENV)) {
   app.get('*', (req, res) => {
     res.sendFile(path.resolve('client', 'build', 'index.html'));
   });
+  app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '/client/public/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
 }
 
 const PORT = process.env.PORT || 5000;
