@@ -1,11 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
-            <h1>Tech profile</h1>
+            {props.user ? (<h4>Welcome, {props.user.displayName}</h4>) : 'Welcome,'}
+            {props.user ? (<img src={props.user.profilePhoto} />) : 'placeholder'}
         </div>
     )
 }
 
-export default Profile;
+const mapStateToProps = ({auth}) => {
+    return {user: auth};
+}
+  
+  export default connect(mapStateToProps)(Profile);
